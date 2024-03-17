@@ -7,4 +7,5 @@ if (!process.env.DATABASE_URL) {
 // 创建连接池
 const poolConnection = mysql.createPool(process.env.DATABASE_URL as string)
 
+export const pool = poolConnection
 export const db = drizzle(poolConnection)

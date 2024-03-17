@@ -2,6 +2,7 @@ import express from "express";
 import type { Express, Request, Response } from "express";
 import bodyParser from "body-parser";
 import usersRouter from './routes/users'
+import postsRouter from './routes/posts'
 
 const app: Express = express();
 const port = process.env.PORT || 3000;
@@ -15,6 +16,7 @@ app.get("/", (req: Request, res: Response) => {
   res.send("Hello World!");
 });
 app.use("/users", usersRouter)
+app.use("/posts", postsRouter)
 
 // 捕获 404 错误
 app.use((req: Request, res: Response, next) => {

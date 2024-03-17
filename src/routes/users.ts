@@ -6,6 +6,8 @@ import { eq } from 'drizzle-orm'
 
 const router = express.Router()
 
+type NewUser = typeof userSchema.$inferInsert
+
 /**
  * Get all users
  */
@@ -18,6 +20,7 @@ router.get('/', async (req: Request, res: Response) => {
       data: users
     })
   } catch (error) {
+    console.error(error, ' 查询报错')
     return res.status(500).json({ success: false, message: 'Unable to get users', data: null })
   }
 })
@@ -55,7 +58,7 @@ router.post('/add', async (req: Request, res: Response) => {
       data: user
     })
   } catch (error) {
-    return res.status(500).json({ message: 'name and email are required', data: null })
+    return res.status(500).json({ success: false, message: 'name and email are required', data: null })
   }
 })
 
