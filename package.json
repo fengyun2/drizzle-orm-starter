@@ -1,0 +1,27 @@
+{
+  "name": "drizzle-orm-starter",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun --watch src/index.ts",
+    "start": "bun run src/index.ts",
+    "format": "bunx @biomejs/biome format ./src --write",
+    "lint": "bunx @biomejs/biome lint ./src",
+    "db:generate": "drizzle-kit generate:mysql",
+    "db:push": "drizzle-kit push:mysql",
+    "db:seed": "bun run src/db/seed.ts"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.6.1",
+    "@types/bun": "latest",
+    "bun": "1.0.1",
+    "drizzle-kit": "^0.20.14"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.30.2",
+    "mysql2": "^3.9.2"
+  }
+}
